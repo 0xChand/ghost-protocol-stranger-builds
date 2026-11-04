@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 2,
+  "generator": "ui-copilot",
+  "exportedPaths": [
+    ".env.example",
+    ".gitignore",
+    "app/globals.css",
+    "app/layout.tsx",
+    "app/page.tsx",
+    "next.config.js",
+    "postcss.config.js",
+    "raw/PreviewPage.jsx",
+    "tailwind.config.ts",
+    "tsconfig.json"
+  ],
+  "files": [
+    {
+      "path": ".env.example",
+      "lastSyncedSha": "27e4e0e3460a831525676b3ccae15f15990daebc"
+    },
+    {
+      "path": ".gitignore",
+      "lastSyncedSha": "81b98008a2f6ec4b7123c208a427a873e866411d"
+    },
+    {
+      "path": "app/globals.css",
+      "lastSyncedSha": "8aa86f5b96ee69d72a39f0686dd287b7bff883cc"
+    },
+    {
+      "path": "app/layout.tsx",
+      "lastSyncedSha": "0eb63ebc6ec7624cf13130950fc97c6fa9f04935"
+    },
+    {
+      "path": "app/page.tsx",
+      "lastSyncedSha": "5b91f35012468999c55fc736bc860cf3547356b8"
+    },
+    {
+      "path": "next.config.js",
+      "lastSyncedSha": "7c4d453b53454007db05987cb6c51a358d331f86"
+    },
+    {
+      "path": "postcss.config.js",
+      "lastSyncedSha": "33ad091d26d8a9dc95ebdf616e217d985ec215b8"
+    },
+    {
+      "path": "raw/PreviewPage.jsx",
+      "lastSyncedSha": "6521d6855a6f7a5dcc370c410117a06594d0c2d1"
+    },
+    {
+      "path": "tailwind.config.ts",
+      "lastSyncedSha": "ae394cbf43ee3af109cd0d279dac25b9ae72ccee"
+    },
+    {
+      "path": "tsconfig.json",
+      "lastSyncedSha": "16a6a242ece6ae778cf83aa93d85ddf29720fd64"
+    }
+  ]
+}

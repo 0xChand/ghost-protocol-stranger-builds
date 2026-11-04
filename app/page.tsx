@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react'
 
 function PreviewPagePage() {
   const STORAGE_KEY = "ghost-protocol-save-v1";
+  const DEFAULT_ORACLE_STATUS = "ORACLE-9 is waiting for a question.";
 
   const navLinks = [
     { label: "Home", href: "/" },
@@ -184,6 +185,8 @@ function PreviewPagePage() {
     markedTimelineEvents: [],
     finalAccusation: null,
     endingId: null,
+    oracleLastQuestionId: null,
+    oracleStatus: DEFAULT_ORACLE_STATUS,
     updatedAt: null,
   });
 
@@ -220,6 +223,8 @@ function PreviewPagePage() {
           : [],
         finalAccusation: validSuspectIds.includes(parsed.finalAccusation) ? parsed.finalAccusation : null,
         endingId: Object.keys(endings).includes(parsed.endingId) ? parsed.endingId : null,
+        oracleLastQuestionId: validQuestionIds.includes(parsed.oracleLastQuestionId) ? parsed.oracleLastQuestionId : null,
+        oracleStatus: typeof parsed.oracleStatus === "string" && parsed.oracleStatus ? parsed.oracleStatus : DEFAULT_ORACLE_STATUS,
         briefingDismissed: Boolean(parsed.briefingDismissed),
         updatedAt: parsed.updatedAt || null,
       };
@@ -230,8 +235,8 @@ function PreviewPagePage() {
 
   const [save, setSave] = React.useState(readInitialSave);
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
-  const [activeQuestionId, setActiveQuestionId] = React.useState(null);
-  const [oracleStatus, setOracleStatus] = React.useState("ORACLE-9 is waiting for a question.");
+  const [activeQuestionId, setActiveQuestionId] = React.useState(() => save.oracleLastQuestionId || null);
+  const [oracleStatus, setOracleStatus] = React.useState(() => save.oracleStatus || DEFAULT_ORACLE_STATUS);
   const [resetArmed, setResetArmed] = React.useState(false);
 
   React.useEffect(() => {
@@ -302,13 +307,17 @@ function PreviewPagePage() {
       return;
     }
 
+    const nextOracleStatus = `ORACLE-9 response updated. ${question.contradiction}`;
+
     setActiveQuestionId(questionId);
-    setOracleStatus(`ORACLE-9 response updated. ${question.contradiction}`);
+    setOracleStatus(nextOracleStatus);
 
     touchSave((previous) => ({
       askedQuestions: previous.askedQuestions.includes(questionId)
         ? previous.askedQuestions
         : [...previous.askedQuestions, questionId],
+      oracleLastQuestionId: questionId,
+      oracleStatus: nextOracleStatus,
     }));
   };
 
@@ -335,7 +344,9 @@ function PreviewPagePage() {
 
   const makeAccusation = (suspectId) => {
     if (!accusationUnlocked) {
-      setOracleStatus("Final accusation remains locked. Complete evidence, interrogation, and timeline review first.");
+      const lockedStatus = "Final accusation remains locked. Complete evidence, interrogation, and timeline review first.";
+      setOracleStatus(lockedStatus);
+      touchSave({ oracleStatus: lockedStatus });
       return;
     }
 
@@ -366,7 +377,7 @@ function PreviewPagePage() {
 
     setSave(createInitialSave());
     setActiveQuestionId(null);
-    setOracleStatus("Investigation reset. ORACLE-9 is waiting for a question.");
+    setOracleStatus(DEFAULT_ORACLE_STATUS);
     setResetArmed(false);
 
     if (typeof window !== "undefined") {
