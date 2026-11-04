@@ -17,3 +17,8 @@ Build Ghost Protocol in Shelled: a browser-local mystery with three clues, an un
 
 ## Limits
 One ending and preview refresh were exercised. Other endings, cross-browser behavior, accessibility and mobile layouts have not been independently verified. The AI witness uses scripted responses, not live AI.
+
+## Follow-up Shelled run
+Asked Shelled to retain the last ORACLE-9 answer on reload while preserving old saves and existing progress. In its version 4 preview, asking “Define Ghost Protocol” and refreshing retained the displayed answer and prior progress. Shelled opened PR #2 with the generated code change: https://github.com/0xChand/ghost-protocol-stranger-builds/pull/2. The PR has not been merged. The shared demo currently points to version 3; the fix is visible in the PR and the Shelled editor.
+
+The first export failed while attempting to add a GitHub Actions workflow. Adding a workflow to the repository and selecting “Keep GitHub” for that file allowed the subsequent Shelled sync to finish. The service supplied only a generic export error, so the underlying cause is unconfirmed.
