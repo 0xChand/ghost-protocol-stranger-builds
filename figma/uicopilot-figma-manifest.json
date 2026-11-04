@@ -1,0 +1,53 @@
+{
+  "schema": "com.uicopilot.figma-manifest",
+  "version": 1,
+  "generatedAt": "2026-11-04T15:47:26.663Z",
+  "project": {
+    "id": "e7975277-d20c-4338-b8cb-25ee4ec38178",
+    "name": "PreviewPage"
+  },
+  "source": {
+    "kind": "uicopilot-project",
+    "figmaFileKey": null,
+    "figmaNodeId": null,
+    "figmaFileName": null,
+    "figmaNodeName": null,
+    "figmaUrl": null
+  },
+  "output": {
+    "pages": [
+      {
+        "name": "PreviewPage.jsx",
+        "componentName": "PreviewPage",
+        "bytes": 36996
+      }
+    ],
+    "styles": [
+      {
+        "name": "PreviewPage.css",
+        "bytes": 41331,
+        "hasRootTokens": true
+      }
+    ],
+    "files": [
+      {
+        "name": "PreviewPage.jsx",
+        "language": "javascript",
+        "bytes": 36996
+      },
+      {
+        "name": "PreviewPage.css",
+        "language": "css",
+        "bytes": 41331
+      }
+    ]
+  },
+  "pluginInstructions": {
+    "summary": "Use this manifest to map a DreamUI archive back to a Figma file or frame.",
+    "suggestedActions": [
+      "Read raw/ and fixed/ source files for editable React structure.",
+      "Use app/globals.css and CSS files as design-token candidates.",
+      "If figmaFileKey and figmaNodeId are present, offer update and comparison against that source frame."
+    ]
+  }
+}
